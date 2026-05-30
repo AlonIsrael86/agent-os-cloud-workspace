@@ -1,6 +1,6 @@
 # Operating Model
 
-This repo supports two modes.
+This repo supports three runtime roles. The default architecture is hybrid: Codex Cloud + Codespaces first, VPS later only when persistent infrastructure is justified.
 
 ## 1. Codex Cloud Branch Worker
 
@@ -20,18 +20,33 @@ clean branch -> codex cloud exec --env <ENV_ID> --branch <BRANCH> "<task>" -> co
 
 Do not use first for production/client-critical changes.
 
-## 2. Always-On Cloud Dev Box
+## 2. GitHub Codespaces Interactive Workspace
 
-Use a VPS, Codespace, or cloud workstation when Alon's PC is off.
+Use for browser-accessible terminal sessions while Alon's PC is off.
 
-The environment should have:
+The Codespace should have:
 
 - GitHub CLI authenticated
-- Codex CLI authenticated
-- Claude Code CLI authenticated, if available in the chosen runtime
+- Codex CLI installed and authenticated
+- Claude Code CLI installed and authenticated when available
 - generated MCP config from `templates/mcp.cloud.json.tpl`
 - repo checkouts for projects that are safe to work on remotely
-- secrets provisioned via the platform secret store
+- secrets provisioned via GitHub secret stores
+
+See `docs/RUNTIME-CODESPACES.md`.
+
+## 3. VPS / Cloud Workstation
+
+Use only when Codespaces is not enough.
+
+Good reasons:
+
+- persistent agents
+- scheduled checks
+- SSH-heavy work
+- stable IP allowlists
+
+See `docs/RUNTIME-VPS.md`.
 
 ## Local-Only Boundary
 
@@ -45,4 +60,3 @@ The cloud box does not automatically have:
 - SSH keys
 
 For those, Alon must upload the file, sync a repo, or explicitly provision the credential.
-

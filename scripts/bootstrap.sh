@@ -20,5 +20,12 @@ fi
 
 mkdir -p generated
 
-echo "Bootstrap complete. Run: npm run render && npm run doctor"
+if ! command -v codex >/dev/null 2>&1; then
+  echo "Codex CLI not found. Install/authenticate it in this runtime before real use."
+fi
 
+if ! command -v claude >/dev/null 2>&1; then
+  echo "Claude Code CLI not found. Install/authenticate it in this runtime before Claude-style sessions."
+fi
+
+echo "Bootstrap complete. Run: npm run render && npm run doctor"

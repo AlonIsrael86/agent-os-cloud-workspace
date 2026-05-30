@@ -10,7 +10,7 @@
     },
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-  "postCreateCommand": "bash scripts/bootstrap.sh && bash scripts/doctor.sh",
+  "postCreateCommand": "bash scripts/bootstrap.sh && npm run verify",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -19,4 +19,3 @@
     }
   }
 }
-

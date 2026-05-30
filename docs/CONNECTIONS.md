@@ -1,6 +1,6 @@
 # Connection Inventory
 
-This file lists external systems the cloud workspace should be able to connect to after secrets are provisioned.
+This file lists external systems the cloud workspace should be able to connect to after secrets are provisioned. The structured source of truth is `config/integrations.json`.
 
 ## Agent Runtimes
 
@@ -33,6 +33,10 @@ This file lists external systems the cloud workspace should be able to connect t
 | Vercel | CLI/API | `VERCEL_TOKEN` |
 | LinkAutomator | API | `LINKAUTOMATOR_API_KEY` |
 | TargetBob | API | `TARGETBOB_API_KEYS_JSON` |
+| Microsoft Clarity | MCP/API | `CLARITY_ORIN_API_TOKEN` |
+| Figma | hosted plugin/MCP | OAuth in runtime |
+| Linear | hosted plugin/MCP | OAuth in runtime |
+| Documents / Spreadsheets / Presentations | Codex plugins | Cloud runtime plugin availability and auth |
 
 ## Not Portable Without Extra Work
 
@@ -41,4 +45,5 @@ This file lists external systems the cloud workspace should be able to connect t
 - OneDrive desktop text drafts
 - local MemPalace Python package and memory drawers unless synced to the cloud
 - local browser profiles and cookies
-
+- local Codex Browser/Computer Use native pipe paths
+- local Codex `node_repl` binary paths

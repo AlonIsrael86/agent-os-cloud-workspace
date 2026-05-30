@@ -38,9 +38,19 @@ The cloud workspace should connect to the same external systems Alon uses locall
 5. Run `scripts/doctor.sh`.
 6. Run one low-risk smoke test before using the environment for real work.
 
+## Default Architecture
+
+Default path: **hybrid**.
+
+1. Codex Cloud for async branch tasks and reviewable diffs.
+2. GitHub Codespaces for interactive cloud sessions when the local PC is off.
+3. VPS/cloud workstation later only if persistent always-on processes are needed.
+
+See `docs/ARCHITECTURE.md`.
+
 ## Current Status
 
-Scaffold only. No secrets have been added, no Codex Cloud task has been submitted from this repo, and no always-on VPS has been provisioned yet.
+Production scaffold. No secrets have been added, no Codex Cloud task has been submitted from this repo, and no always-on VPS has been provisioned yet.
 
 See:
 
@@ -48,4 +58,7 @@ See:
 - `docs/CONNECTIONS.md`
 - `docs/SECRETS.md`
 - `docs/CODEX-CLOUD.md`
-
+- `docs/RUNTIME-CODESPACES.md`
+- `docs/RUNTIME-VPS.md`
+- `docs/READINESS-CHECKLIST.md`
+- `docs/STATUS.md`

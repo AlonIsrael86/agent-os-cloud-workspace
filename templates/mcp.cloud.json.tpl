@@ -36,6 +36,27 @@
         "N8N_API_KEY": "${N8N_YEDA_API_KEY}"
       }
     },
+    "n8n-official-alon": {
+      "type": "http",
+      "url": "https://alon-n8n.cloud/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer ${N8N_ALON_MCP_BEARER}"
+      }
+    },
+    "n8n-official-yeda": {
+      "type": "http",
+      "url": "https://yedauto.com/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer ${N8N_YEDA_MCP_BEARER}"
+      }
+    },
+    "n8n-official-lm-prod": {
+      "type": "http",
+      "url": "https://lastminute-n8n.justintime.co.il/mcp-server/http",
+      "headers": {
+        "Authorization": "Bearer ${N8N_LM_PROD_MCP_BEARER}"
+      }
+    },
     "context7": {
       "type": "http",
       "url": "https://mcp.context7.com/mcp",
@@ -46,6 +67,10 @@
     "canva": {
       "type": "http",
       "url": "https://mcp.canva.com/mcp"
+    },
+    "mobbin": {
+      "type": "http",
+      "url": "https://api.mobbin.com/mcp"
     },
     "meta-ads": {
       "type": "http",
@@ -106,4 +131,3 @@
     }
   }
 }
-

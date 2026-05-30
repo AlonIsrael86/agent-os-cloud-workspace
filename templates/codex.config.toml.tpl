@@ -31,6 +31,8 @@ CONTEXT7_API_KEY = "${CONTEXT7_API_KEY}"
 [mcp_servers.canva]
 url = "https://mcp.canva.com/mcp"
 
+[mcp_servers.mobbin]
+url = "https://api.mobbin.com/mcp"
+
 [mcp_servers.meta-ads]
 url = "https://mcp.facebook.com/ads"
-

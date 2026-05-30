@@ -15,5 +15,4 @@ jobs:
         with:
           node-version: "22"
       - name: Static doctor
-        run: bash scripts/doctor.sh --static
-
+        run: npm run verify

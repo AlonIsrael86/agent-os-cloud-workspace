@@ -1,0 +1,159 @@
+{
+  "runtimes": [
+    {
+      "name": "Codex Cloud",
+      "status": "available-locally",
+      "role": "async branch worker",
+      "manualSetup": ["choose environment id", "provision environment secrets"]
+    },
+    {
+      "name": "GitHub Codespaces",
+      "status": "repo-ready",
+      "role": "interactive cloud workspace",
+      "manualSetup": ["create codespace", "authenticate Codex CLI", "authenticate Claude Code CLI", "add secrets"]
+    },
+    {
+      "name": "VPS/cloud workstation",
+      "status": "documented-not-provisioned",
+      "role": "persistent always-on workspace",
+      "manualSetup": ["create server", "harden SSH", "install CLIs", "provision secrets"]
+    }
+  ],
+  "integrations": [
+    {
+      "name": "GitHub",
+      "localRoute": "gh CLI and Codex GitHub plugin",
+      "cloudRoute": "gh CLI with OAuth or GITHUB_TOKEN",
+      "requiredSecrets": ["GITHUB_TOKEN"],
+      "portable": true
+    },
+    {
+      "name": "n8n Alon",
+      "localRoute": "n8n-mcp and n8n official HTTP MCP",
+      "cloudRoute": "n8n-mcp stdio and optional HTTP MCP",
+      "requiredSecrets": ["N8N_ALON_API_KEY", "N8N_ALON_MCP_BEARER"],
+      "portable": true
+    },
+    {
+      "name": "n8n LastMinute production",
+      "localRoute": "n8n-mcp-lastminute-prod and official HTTP MCP",
+      "cloudRoute": "n8n-mcp stdio and optional HTTP MCP",
+      "requiredSecrets": ["N8N_LM_PROD_API_KEY", "N8N_LM_PROD_MCP_BEARER"],
+      "portable": true
+    },
+    {
+      "name": "n8n Yeda",
+      "localRoute": "n8n-mcp-yedatuto and official HTTP MCP",
+      "cloudRoute": "n8n-mcp stdio and optional HTTP MCP",
+      "requiredSecrets": ["N8N_YEDA_API_KEY", "N8N_YEDA_MCP_BEARER"],
+      "portable": true
+    },
+    {
+      "name": "Google Workspace, GSC, GA, Google Ads, GTM",
+      "localRoute": "OAuth token files and local MCP wrappers",
+      "cloudRoute": "cloud OAuth files or fresh browser OAuth in runtime",
+      "requiredSecrets": ["GOOGLE_OAUTH_CLIENT_JSON", "GOOGLE_GSC_TOKEN_JSON", "GOOGLE_ANALYTICS_TOKEN_JSON", "GOOGLE_ADS_TOKEN_JSON", "GTM_TOKEN_JSON"],
+      "portable": "requires-token-provisioning"
+    },
+    {
+      "name": "Make EU1/EU2",
+      "localRoute": "make-mcp-server",
+      "cloudRoute": "make-mcp-server",
+      "requiredSecrets": ["MAKE_EU1_API_KEY", "MAKE_EU2_API_KEY", "MAKE_EU1_TEAM_ID", "MAKE_EU2_TEAM_ID"],
+      "portable": true
+    },
+    {
+      "name": "Vercel",
+      "localRoute": "Vercel CLI/API",
+      "cloudRoute": "Vercel CLI/API",
+      "requiredSecrets": ["VERCEL_TOKEN"],
+      "portable": true
+    },
+    {
+      "name": "Meta Ads official MCP/API",
+      "localRoute": "official Meta Ads MCP/API only",
+      "cloudRoute": "official hosted MCP/API only",
+      "requiredSecrets": ["META_ADS_OAUTH"],
+      "portable": "oauth-required",
+      "forbidden": ["Meta/Facebook browser automation"]
+    },
+    {
+      "name": "Context7",
+      "localRoute": "HTTP MCP",
+      "cloudRoute": "HTTP MCP",
+      "requiredSecrets": ["CONTEXT7_API_KEY"],
+      "portable": true
+    },
+    {
+      "name": "Canva",
+      "localRoute": "hosted MCP/OAuth",
+      "cloudRoute": "hosted MCP/OAuth",
+      "requiredSecrets": ["CANVA_OAUTH"],
+      "portable": "oauth-required"
+    },
+    {
+      "name": "NotebookLM",
+      "localRoute": "notebooklm-mcp",
+      "cloudRoute": "notebooklm-mcp",
+      "requiredSecrets": ["NOTEBOOKLM_AUTH"],
+      "portable": "auth-required"
+    },
+    {
+      "name": "Higgsfield",
+      "localRoute": "hosted MCP",
+      "cloudRoute": "hosted MCP",
+      "requiredSecrets": ["HIGGSFIELD_AUTH"],
+      "portable": "auth-required"
+    },
+    {
+      "name": "Mobbin",
+      "localRoute": "hosted MCP",
+      "cloudRoute": "hosted MCP",
+      "requiredSecrets": ["MOBBIN_OAUTH"],
+      "portable": "paid-plan-and-oauth-required"
+    },
+    {
+      "name": "LottieFiles Creator",
+      "localRoute": "local Creator bridge script",
+      "cloudRoute": "new cloud-compatible bridge required",
+      "requiredSecrets": ["LOTTIEFILES_AUTH"],
+      "portable": "partial"
+    },
+    {
+      "name": "Elementor",
+      "localRoute": "local PowerShell wrapper scripts",
+      "cloudRoute": "cloud-compatible MCP wrappers required",
+      "requiredSecrets": ["ELEMENTOR_JUSTINTIME_AUTH", "ELEMENTOR_ORIN_AUTH"],
+      "portable": "partial"
+    },
+    {
+      "name": "LinkAutomator",
+      "localRoute": "API/CLI",
+      "cloudRoute": "API/CLI",
+      "requiredSecrets": ["LINKAUTOMATOR_API_KEY"],
+      "portable": true
+    },
+    {
+      "name": "TargetBob",
+      "localRoute": "API-first per-user keys",
+      "cloudRoute": "API-first per-user keys",
+      "requiredSecrets": ["TARGETBOB_API_KEYS_JSON"],
+      "portable": true
+    },
+    {
+      "name": "Chrome debug browser",
+      "localRoute": "local Edge/Chrome port 9222",
+      "cloudRoute": "not portable without a cloud browser profile",
+      "requiredSecrets": [],
+      "portable": false
+    },
+    {
+      "name": "Local files and OneDrive",
+      "localRoute": "C:\\\\Users\\\\Alon local paths",
+      "cloudRoute": "not connected by default",
+      "requiredSecrets": [],
+      "portable": false
+    }
+  ]
+}
+

@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "render": "node scripts/render-config.mjs",
-    "doctor": "bash scripts/doctor.sh"
+    "doctor": "bash scripts/doctor.sh",
+    "doctor:static": "bash scripts/doctor.sh --static",
+    "secret-scan": "bash scripts/secret-scan.sh",
+    "verify": "npm run secret-scan && npm run render && npm run doctor:static"
   }
 }
-

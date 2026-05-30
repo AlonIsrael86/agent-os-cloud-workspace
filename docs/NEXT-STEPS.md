@@ -13,5 +13,16 @@
 
 ## Recommended First Runtime
 
-Start with Codex Cloud for branch-worker tasks. Add a VPS or Codespace only if Alon needs live chat-style sessions while the local PC is off.
+Start with the hybrid path:
 
+1. Codex Cloud for branch-worker tasks.
+2. GitHub Codespaces for live terminal/chat-style work while the PC is off.
+3. VPS later only if persistent always-on agents are required.
+
+## Blockers Before Full Parity
+
+- Codex CLI auth in the cloud runtime.
+- Claude Code CLI auth in the cloud runtime.
+- Secrets provisioning.
+- OAuth connectors that require browser login.
+- Cloud-compatible replacements for local Windows wrapper scripts.
