@@ -1,0 +1,11 @@
+{
+  "name": "agent-os-cloud-workspace",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "render": "node scripts/render-config.mjs",
+    "doctor": "bash scripts/doctor.sh"
+  }
+}
+
