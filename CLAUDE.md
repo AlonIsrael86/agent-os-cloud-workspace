@@ -1,8 +1,66 @@
-# Claude Code Cloud Workspace
+# Agent OS Cloud Workspace
 
-Use this repository as the cloud-side operating base for Claude Code compatible sessions.
+This repo defines Alon's public-safe cloud Agent OS workspace for Codex and Claude Code.
 
-Follow `AGENTS.md` first. This repo is intentionally secret-free and local-file-free.
+## Purpose
 
-For work that needs Alon's local files, stop and ask for the specific uploaded/synced artifact. Do not invent local paths or assume OneDrive is mounted.
+- Provide a portable cloud-side operating base for Codex Cloud branch work.
+- Provide a repo that can bootstrap Claude Code compatible cloud sessions in Codespaces or a VPS.
+- Keep cloud configuration synced with Alon's Codex/Claude operating system without copying private local files or runtime state.
 
+## Core Rules
+
+- Respond to Alon in English.
+- Treat this environment as remote and potentially persistent.
+- Do not commit secrets, tokens, cookies, keys, browser profiles, local runtime state, or local file copies.
+- Use API/CLI/MCP first. Use browser automation only when the target task truly requires UI inspection.
+- Never send outbound email, WhatsApp, SMS, Telegram, Slack, forms, or other external messages without Alon's immediate explicit send instruction.
+- Never automate Meta/Facebook login, Ads Manager, Business Suite, Lead Center, billing, verification, account, or security pages in a debug/authenticated browser.
+- Do not assume local Windows paths exist. Cloud paths must be discovered from the runtime.
+- If a task needs local-only files from Alon's PC, report the blocker and ask Alon to upload or sync the exact files.
+
+## Cloud Boundary
+
+The cloud environment may connect to external services using approved secret stores. It must not depend on:
+
+- `C:\Users\Alon\...`
+- local browser cookies
+- local OneDrive files
+- local `.claude` or `.codex` runtime state
+- local SSH keys unless explicitly provisioned as cloud secrets
+
+## What Belongs Here
+
+- `AGENTS.md`, `CLAUDE.md`, and generated `GEMINI.md` instruction files.
+- Sanitized Codex, Claude, and MCP templates.
+- Bootstrap, render, doctor, and scan scripts.
+- GitHub Actions for static verification.
+- Cloud runtime docs, connection inventory, and runbooks.
+
+## What Must Never Be Committed
+
+- API keys, JWTs, OAuth refresh tokens, app passwords, SSH private keys, and bearer tokens.
+- Browser cookies, browser profiles, local authenticated state, and local `.claude` / `.codex` runtime data.
+- OneDrive files, screenshots, client reports/materials, raw logs, WhatsApp/Gmail/Drive exports, invoices, or local database files.
+- Generated runtime configs under `generated/`.
+
+## Verification Standard
+
+Before reporting the cloud workspace as ready:
+
+1. Run `npm run render`.
+2. Run `npm run doctor:static` or `npm run verify`.
+3. Confirm generated runtime configs are not tracked by git.
+4. Confirm Codex CLI shape with `codex cloud --help` and `codex cloud exec --help`.
+5. Confirm GitHub auth and one read-only external connection only after secrets are provisioned.
+6. List any missing secrets or unsupported local-only workflows.
+
+## Runtime Decision
+
+Default path:
+
+1. Codex Cloud for async branch tasks and reviewable diffs.
+2. GitHub Codespaces for interactive cloud sessions when Alon's PC is off.
+3. VPS/cloud workstation only if persistent always-on processes are required.
+
+First Codex Cloud task must be low risk, branch-safe, reversible, and reviewable with `codex cloud diff` before any apply/merge.

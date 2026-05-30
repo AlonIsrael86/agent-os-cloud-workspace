@@ -36,6 +36,26 @@ done
 
 rm -f /tmp/agent-os-secret-scan-match.txt
 
+tracked_forbidden=$(git ls-files | grep -E '(^|/)(generated|secrets|tokens|cookies|profiles|\.claude|\.codex)/|(\.env|\.log|\.key|\.pem|\.p12|\.sqlite|\.db|\.png|\.jpe?g|\.pdf|\.docx|\.xlsx|\.json\.secret)$' || true)
+if [[ -n "$tracked_forbidden" ]]; then
+  echo "Forbidden tracked local/runtime artifacts found:"
+  echo "$tracked_forbidden"
+  fail=1
+fi
+
+unignored_forbidden=$(find . \
+  -path ./.git -prune -o \
+  -path ./generated -prune -o \
+  -path ./node_modules -prune -o \
+  -path ./.venv -prune -o \
+  \( -name "*.key" -o -name "*.pem" -o -name "*.p12" -o -name "*.sqlite" -o -name "*.db" -o -name "*.json.secret" \) \
+  -print)
+if [[ -n "$unignored_forbidden" ]]; then
+  echo "Forbidden unignored local/runtime files found:"
+  echo "$unignored_forbidden"
+  fail=1
+fi
+
 if [[ "$fail" -ne 0 ]]; then
   echo "Secret scan failed."
   exit 1

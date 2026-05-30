@@ -43,6 +43,8 @@ check_secret_name() {
 
 check_file README.md
 check_file AGENTS.md
+check_file GEMINI.md
+check_file CLAUDE.md
 check_file docs/ARCHITECTURE.md
 check_file templates/mcp.cloud.json.tpl
 check_file templates/codex.config.toml.tpl
@@ -71,6 +73,11 @@ if [[ -d generated ]]; then
   fi
 fi
 
+if git status --short -- generated | grep -q .; then
+  echo "FAIL generated runtime config has uncommitted git-visible changes"
+  fail=$((fail + 1))
+fi
+
 if [[ "$STATIC_ONLY" == "0" ]]; then
   check_secret_name N8N_ALON_API_KEY
   check_secret_name N8N_LM_PROD_API_KEY
@@ -90,7 +97,7 @@ if [[ "$STATIC_ONLY" == "0" ]]; then
     warn=$((warn + 1))
   fi
 
-  if codex cloud list --limit 1 --json >/dev/null 2>&1; then
+  if codex cloud list >/dev/null 2>&1; then
     echo "PASS codex cloud list"
   else
     echo "WARN codex cloud list failed"

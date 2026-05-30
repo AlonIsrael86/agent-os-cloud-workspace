@@ -1,6 +1,6 @@
 # Current Status
 
-Last verified: 2026-05-31 01:45 IST.
+Last verified: 2026-05-31 01:54 IST.
 
 ## Chosen Architecture
 
@@ -16,10 +16,11 @@ Default: **hybrid**.
 - Secret scan passes.
 - Generated config render works and writes to `generated/`, which is gitignored.
 - Static doctor passes with `0 fail, 0 warn`.
+- Full runtime doctor exits successfully with `0 fail, 4 warn`; the warnings are expected until cloud runtime secrets and Codespaces scope are provisioned.
 - Codex CLI exists locally: `codex-cli 0.135.0`.
 - Claude Code CLI exists locally: `2.1.158`.
 - GitHub repo exists and GitHub Actions doctor previously passed.
-- `codex cloud list --limit 5 --json` works and currently returns no tasks.
+- `codex cloud list` works and currently returns no tasks.
 
 ## Blocked / Manual
 
@@ -42,4 +43,3 @@ After GitHub CLI has the `codespace` scope, create a Codespace from this repo an
 npm run verify
 npm run doctor
 ```
-

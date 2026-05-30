@@ -15,11 +15,12 @@ The cloud workspace should connect to the same external systems Alon uses locall
 
 ## What Belongs Here
 
+- Canonical `CLAUDE.md` plus generated `AGENTS.md` and `GEMINI.md`
 - Cloud bootstrap scripts
 - Sanitized MCP and Codex config templates
 - Connection and secret inventory
 - Agent operating rules for cloud sessions
-- Doctor scripts to check whether the cloud environment is ready
+- Doctor and secret-scan scripts to check whether the cloud environment is ready
 
 ## What Does Not Belong Here
 
@@ -37,6 +38,20 @@ The cloud workspace should connect to the same external systems Alon uses locall
 4. Run `scripts/render-config.mjs` to generate runtime configs from templates.
 5. Run `scripts/doctor.sh`.
 6. Run one low-risk smoke test before using the environment for real work.
+
+## Verification
+
+Before pushing or using this repo in a cloud runtime, run:
+
+```bash
+npm run verify
+```
+
+For a runtime readiness check after secrets are provisioned, run:
+
+```bash
+npm run doctor
+```
 
 ## Default Architecture
 
