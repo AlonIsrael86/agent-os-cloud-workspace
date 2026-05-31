@@ -65,7 +65,7 @@ See `docs/ARCHITECTURE.md`.
 
 ## Current Status
 
-Production scaffold. No secrets have been added, no Codex Cloud task has been submitted from this repo, and no always-on VPS has been provisioned yet.
+Production scaffold plus a first VPS fallback runtime has been initialized from this repo. No secrets have been added, no Codex Cloud task has been submitted from this repo, and the VPS still needs manual GitHub/Codex/Claude authentication before it can act as a real remote agent terminal.
 
 See:
 

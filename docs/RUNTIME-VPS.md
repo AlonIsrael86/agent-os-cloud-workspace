@@ -35,6 +35,31 @@ bash scripts/bootstrap.sh
 
 Provision secrets in a `.env` file owned by the deploy user or via a proper secret manager. Do not commit it.
 
+## Current Provisioning Status
+
+The fallback VPS runtime has been initialized once:
+
+- Repo path: `/opt/agent-os-cloud-workspace`
+- `codex-cli 0.135.0` installed globally
+- `Claude Code 2.1.159` installed globally
+- Static repo verification passes
+
+Still manual:
+
+- `gh auth login`
+- `codex login`
+- Claude Code login
+- external integration secrets/OAuth
+
+Runbook after SSH:
+
+```bash
+cd /opt/agent-os-cloud-workspace
+git pull --ff-only
+npm run verify
+npm run doctor
+```
+
 ## Recommended Later Upgrade
 
 If this becomes permanent infrastructure, add:
@@ -45,4 +70,3 @@ If this becomes permanent infrastructure, add:
 - automatic security updates
 - encrypted backups
 - fail2ban or equivalent SSH protection
-
